@@ -46,3 +46,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pg', '~> 0.18.0.pre20141117110243'
 gem 'devise'
 gem 'coffee-script-source', '1.8.0'
+gem 'nokogiri'
