@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @reward.product.name %>
+</p>
+
+<p>
+  <strong>Offer type:</strong>
+  <%= @reward.offer_type %>
+</p>
+
+<p>
+  <strong>Min circle size:</strong>
+  <%= @reward.min_circle_size %>
+</p>
+
+<p>
+  <strong>Min circle points:</strong>
+  <%= @reward.min_circle_points %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @reward.title %>
+</p>
+
+<p>
+  <strong>Points cost:</strong>
+  <%= @reward.points_cost %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @reward.discount %>
+</p>
+
+<p>
+  <strong>Desc1:</strong>
+  <%= @reward.desc1 %>
+</p>
+
+<p>
+  <strong>Desc2:</strong>
+  <%= @reward.desc2 %>
+</p>
+
+<p>
+  <strong>Artwork filename:</strong>
+  <%= @reward.artwork_filename %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @reward.status %>
+</p>
+
+<%= link_to 'Edit', edit_reward_path(@reward) %> |
+<%= link_to 'Back', rewards_path %>

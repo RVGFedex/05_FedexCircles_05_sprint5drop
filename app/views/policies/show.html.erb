@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @policy.user %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @policy.product %>
+</p>
+
+<p>
+  <strong>Policy number:</strong>
+  <%= @policy.policy_number %>
+</p>
+
+<p>
+  <strong>Premium:</strong>
+  <%= @policy.premium %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @policy.frequency %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @policy.status %>
+</p>
+
+<%= link_to 'Edit', edit_policy_path(@policy) %> |
+<%= link_to 'Back', policies_path %>

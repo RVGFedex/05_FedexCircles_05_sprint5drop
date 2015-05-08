@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Policies Summary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th class="desc" width="125">User</th>
+      <th class="desc" width="125">Product</th>
+      <th class="desc" width="125">Pol Number</th>
+      <th class="desc" width="125">Premium</th>
+      <th class="desc" width="125">Frequency</th>
+	  <th colspan="3" width="165"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	<% if @policies.each.count == 0 %>
+		<tr><td class="desc" colspan=10>No Policies currently exist.</td></tr>
+	<% else %>
+		<% @policies.each do |policy| %>
+			<tr>				
+				<td class="desc"><%= policy.user.name %></td>				
+				<td class="desc"><%= policy.product.name %></td>				
+				<td class="desc"><%= policy.policy_number %></td>				
+				<td class="desc"><%= policy.premium %></td>				
+				<td class="desc"><%= policy.frequency %></td>
+				<td width="55"><%= link_to image_tag("icon_show.png"), policy %></td>
+				<td width="55"><%= link_to image_tag("icon_edit.png"), edit_policy_path(policy) %></td>
+				<td width="55"><%= link_to link_to image_tag("icon_delete.png"), policy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	<% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Policy', new_policy_path %>
+

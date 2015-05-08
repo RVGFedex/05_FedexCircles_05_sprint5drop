@@ -1,0 +1,50 @@
+<%= form_for(@policy, url: create_multi_policies_path(@policy), html: {method: "create_multi_policies"}) do |f| %>
+
+  <% if @policy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@policy.errors.count, "error") %> prohibited these policies from being saved:</h2>
+
+      <ul>
+      <% @policy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label for="policy_">Motor Policy</label><br>
+    <input id="policy_motor" name="policy_motor" type="string" />
+  </div>
+  
+  <div class="field">
+    <label for="policy_">Home Policy</label><br>
+    <input id="policy_home" name="policy_home" type="string" />
+  </div>
+  
+  <div class="field">
+    <label for="policy_">Health Policy</label><br>
+    <input id="policy_health" name="policy_health" type="string" />
+  </div>
+  
+  <div class="field">
+    <label for="policy_">Pension Policy</label><br>
+    <input id="policy_pension" name="policy_pension" type="string" />
+  </div>
+  
+  <div class="field">
+    <label for="policy_">Life Assurance Policy</label><br>
+    <input id="policy_life" name="policy_life" type="string" />
+  </div>
+  
+  <div class="field">
+    <label for="policy_">Travel Policy</label><br>
+    <input id="policy_travel" name="policy_travel" type="string" />
+  </div>
+  
+  <br/>
+  <div class="actions">
+	<%= f.submit "Add Policies", :class => 'form_button'  %>
+  </div>  
+  
+<% end %>

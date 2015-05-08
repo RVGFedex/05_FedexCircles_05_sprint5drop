@@ -1,0 +1,45 @@
+<%= form_for(@points_log) do |f| %>
+  <% if @points_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@points_log.errors.count, "error") %> prohibited this points_log from being saved:</h2>
+
+      <ul>
+      <% @points_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :circle_id %><br>
+    <%= f.text_field :circle_id %>
+  </div>
+  <div class="field">
+    <%= f.label :policy_id %><br>
+    <%= f.text_field :policy_id %>
+  </div>
+  <div class="field">
+    <%= f.label :reward_takeup_id %><br>
+    <%= f.text_field :reward_takeup_id %>
+  </div>
+  <div class="field">
+    <%= f.label :event_type %><br>
+    <%= f.text_field :event_type %>
+  </div>
+  <div class="field">
+    <%= f.label :debit %><br>
+    <%= f.number_field :debit %>
+  </div>
+  <div class="field">
+    <%= f.label :credit %><br>
+    <%= f.number_field :credit %>
+  </div>
+  <div class="field">
+    <%= f.label :balance %><br>
+    <%= f.number_field :balance %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Circle:</strong>
+  <%= @points_log.circle %>
+</p>
+
+<p>
+  <strong>Policy:</strong>
+  <%= @points_log.policy %>
+</p>
+
+<p>
+  <strong>Reward takeup:</strong>
+  <%= @points_log.reward_takeup %>
+</p>
+
+<p>
+  <strong>Event type:</strong>
+  <%= @points_log.event_type %>
+</p>
+
+<p>
+  <strong>Debit:</strong>
+  <%= @points_log.debit %>
+</p>
+
+<p>
+  <strong>Credit:</strong>
+  <%= @points_log.credit %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @points_log.balance %>
+</p>
+
+<%= link_to 'Edit', edit_points_log_path(@points_log) %> |
+<%= link_to 'Back', points_logs_path %>

@@ -1,0 +1,94 @@
+<p id="notice"><%= notice %></p>
+
+<% family_pts = Circle.find(current_user.circle_id).points %>
+<% family_size = User.where("circle_id = ?",current_user.circle_id).count %>
+
+  <h3>Discount Offers</h3>
+  <table>
+  <thead>
+    <tr>
+      <th class="desc" width="75">Product</th>
+	  <th class="desc" width="250">Title</th>
+      <th class="desc" width="75">Min Size</th>
+      <th class="desc" width="75">Min Points</th>
+      <th class="desc" width="75">Cost</th>
+      <th class="desc" width="75">Discount</th>
+ 	  <% if Role.find(current_user.role_id).name == 'Customer' %>
+	    <th width="50"></th>
+	  <% else %>			
+	    <th colspan="3" width="150"></th>
+	  <% end %>	
+    </tr>
+  </thead>
+  <tbody>
+		<% @discount_rewards.each do |reward| %>
+			<tr>
+				<td class="desc"><%= reward.product.name %></td>				
+				<td class="desc"><%= reward.title %></td>					
+				<td class="desc"><%= reward.min_circle_size %></td>
+				<td class="desc"><%= reward.min_circle_points %> pts</td>
+				<td class="desc"><%= reward.points_cost %> pts</td>
+				<td class="desc"><%= reward.discount %></td>
+				<% if Role.find(current_user.role_id).name == 'Customer' %>
+					<td width="50">
+					<% if (family_pts >= reward.min_circle_points) && (family_size >= reward.min_circle_size) %>
+						<%= link_to image_tag("basket.png"), takeoffer_reward_path(reward) %>
+					<% end %>
+					</td>
+										
+				<% else %>
+					<td width="50"><%= link_to image_tag("icon_show.png"), reward %></td>
+					<td width="50"><%= link_to image_tag("icon_edit.png"), edit_reward_path(reward) %></td>
+					<td width="50"><%= link_to link_to image_tag("icon_delete.png"), reward, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<% end %>
+				</tr>
+		<% end %>
+  </tbody>
+  </table>
+ 
+  <br/>
+  <h3>Promo Offers</h3>
+  <table>
+  <thead>
+    <tr>
+      <th class="desc" width="75">Product</th>
+	  <th class="desc" width="250">Title</th>
+      <th class="desc" width="75">Min Size</th>
+      <th class="desc" width="75">Min Points</th>
+      <th class="desc" width="75">Cost</th>
+ 	  <% if Role.find(current_user.role_id).name == 'Customer' %>
+	    <th width="50"></th>
+	  <% else %>			
+	    <th colspan="3" width="150"></th>
+	  <% end %>	
+    </tr>
+  </thead>
+  <tbody>
+		<% @promo_rewards.each do |reward| %>
+			<tr>
+				<td class="desc"><%= reward.product.name %></td>				
+				<td class="desc"><%= reward.title %></td>					
+				<td class="desc"><%= reward.min_circle_size %></td>
+				<td class="desc"><%= reward.min_circle_points %> pts</td>
+				<td class="desc"><%= reward.points_cost %> pts</td>
+				<% if Role.find(current_user.role_id).name == 'Customer' %>
+					<td width="50">
+					<% if (family_pts >= reward.min_circle_points) && (family_size >= reward.min_circle_size) %>
+						<%= link_to image_tag("basket.png"), takeoffer_reward_path(reward) %>
+					<% end %>
+					</td>				
+				<% else %>
+					<td width="50"><%= link_to image_tag("icon_show.png"), reward %></td>
+					<td width="50"><%= link_to image_tag("icon_edit.png"), edit_reward_path(reward) %></td>
+					<td width="50"><%= link_to link_to image_tag("icon_delete.png"), reward, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<% end %>
+			</tr>
+		<% end %>
+  </tbody>
+  </table>  
+
+<br/>
+<% if Role.find(current_user.role_id).name != 'Customer' %>
+	<%= link_to 'New Reward', new_reward_path %>
+<% end %>
+

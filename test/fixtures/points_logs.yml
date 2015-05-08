@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  circle_id: 
+  policy_id: 
+  reward_takeup_id: 
+  event_type: MyString
+  debit: 1
+  credit: 1
+  balance: 1
+
+two:
+  circle_id: 
+  policy_id: 
+  reward_takeup_id: 
+  event_type: MyString
+  debit: 1
+  credit: 1
+  balance: 1

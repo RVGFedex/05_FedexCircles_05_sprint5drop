@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @circle.name %>
+</p>
+
+<p>
+  <strong>Group code:</strong>
+  <%= @circle.group_code %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @circle.points %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @circle.status %>
+</p>
+
+<%= link_to 'Edit', edit_circle_path(@circle) %> |
+<%= link_to 'Back', circles_path %>

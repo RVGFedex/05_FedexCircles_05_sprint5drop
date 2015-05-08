@@ -1,0 +1,61 @@
+<%= form_for(@reward) do |f| %>
+  <% if @reward.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reward.errors.count, "error") %> prohibited this reward from being saved:</h2>
+
+      <ul>
+      <% @reward.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.text_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :offer_type %><br>
+    <%= f.text_field :offer_type %>
+  </div>
+  <div class="field">
+    <%= f.label :min_circle_size %><br>
+    <%= f.number_field :min_circle_size %>
+  </div>
+  <div class="field">
+    <%= f.label :min_circle_points %><br>
+    <%= f.number_field :min_circle_points %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :points_cost %><br>
+    <%= f.number_field :points_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :discount %><br>
+    <%= f.text_field :discount %>
+  </div>
+  <div class="field">
+    <%= f.label :desc1 %><br>
+    <%= f.text_field :desc1 %>
+  </div>
+  <div class="field">
+    <%= f.label :desc2 %><br>
+    <%= f.text_field :desc2 %>
+  </div>
+  <div class="field">
+    <%= f.label :artwork_filename %><br>
+    <%= f.text_field :artwork_filename %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

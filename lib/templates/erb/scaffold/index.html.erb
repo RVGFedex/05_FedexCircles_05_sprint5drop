@@ -1,0 +1,39 @@
+<p id="notice"><%%= notice %></p>
+
+<h2><%= plural_table_name.titleize %> Summary</h2>
+
+<table>
+  <thead>
+    <tr>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <th class="desc" width="125"><%= attribute.human_name %></th>
+<% end -%>
+	  <th colspan="3" width="165"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  
+	<%% if @<%= plural_table_name %>.each.count == 0 %>
+		<tr>
+			<td class="desc" colspan=10>No <%= plural_table_name.titleize %> currently exist.</td>
+		</tr>
+	<%% else %>
+		<%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+			<tr>
+				<% attributes.reject(&:password_digest?).each do |attribute| -%>
+					<td class="desc"><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+				<% end -%>
+				<td width="55"><%%= link_to image_tag("icon_show.png"), <%= singular_table_name %> %></td>
+				<td width="55"><%%= link_to image_tag("icon_edit.png"), edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
+				<td width="55"><%%= link_to link_to image_tag("icon_delete.png"), <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<%% end %>
+	<%% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path %>
+

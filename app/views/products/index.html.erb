@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Products Summary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th class="desc" width="45">Id</th> 
+      <th class="desc" width="175">Name</th>
+      <!--<th class="desc" width="175">Description</th>-->
+      <th class="desc" width="125">SP Weight</th>
+      <th class="desc" width="125">RP Weight</th>
+	  <th colspan="3" width="165"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  
+	<% if @products.each.count == 0 %>
+		<tr>
+			<td class="desc" colspan=10>No Products currently exist.</td>
+		</tr>
+	<% else %>
+		<% @products.each do |product| %>
+			<tr>
+					<td class="desc"><%= product.id %></td>
+					<td class="desc"><%= product.name %></td>
+				
+					<!--<td class="desc"><%= product.description %></td>-->
+				
+					<td class="desc"><%= product.spweight %></td>
+				
+					<td class="desc"><%= product.rpweight %></td>
+				
+				<td width="55"><%= link_to image_tag("icon_show.png"), product %></td>
+				<td width="55"><%= link_to image_tag("icon_edit.png"), edit_product_path(product) %></td>
+				<td width="55"><%= link_to link_to image_tag("icon_delete.png"), product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	<% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
+

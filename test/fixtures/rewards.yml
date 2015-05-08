@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 
+  offer_type: MyString
+  min_circle_size: 1
+  min_circle_points: 1
+  title: MyString
+  points_cost: 1
+  discount: 1.5
+  desc1: MyString
+  desc2: MyString
+  artwork_filename: MyString
+  status: MyString
+
+two:
+  product_id: 
+  offer_type: MyString
+  min_circle_size: 1
+  min_circle_points: 1
+  title: MyString
+  points_cost: 1
+  discount: 1.5
+  desc1: MyString
+  desc2: MyString
+  artwork_filename: MyString
+  status: MyString

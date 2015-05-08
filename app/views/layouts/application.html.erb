@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fedex Aviva Circles</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+	<link href="http://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="pageFrame">
+	<div id="pageHeaderOuter">
+		<div id="pageHeaderInner">
+			<div id="headerLeft">
+				<% if user_signed_in? %>
+					<h2><%= Circle.find(current_user.circle_id).name %> : <%= Circle.find(current_user.circle_id).points %> points</h2>
+				<% else %>
+					<h2>Welcome</h2>
+				<% end %>
+				<br/>
+			</div>
+			<div id="headerRight">
+				<% if user_signed_in? %>
+					Signed in as <%= current_user.email %>. Not you?
+					<%= link_to "Edit profile", edit_user_registration_path %>
+					<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+				<% else %>
+					<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+				<% end %>
+				<% flash.each do |name, msg| %>
+					<%= content_tag :div, msg, id: "flash_#{name}" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div id="navOuter">
+		<div id="navInner">
+			<ul id="navlist">		
+				<% if user_signed_in? %>
+					<li><a href="/circles"><span>Circle</span></a></li>
+					<% if Circle.find(current_user.circle_id).group_code == "Aviva" %>
+						<li><a href="/products"><span>Products</span></a></li>
+					<% end %>
+					<li><a href="/policies"><span>Policies</span></a></li>				
+					<li><a href="/rewards"><span>Rewards</span></a></li>				
+					<li class="navlast"><li><a href="/reward_takeups"><span>Takeups</span></a></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+	<div id="pageBodyOuter">
+		<div id="pageBodyInner">
+			<!--<%= params.inspect %> <br/><br/>-->
+			<!-- 
+				<%= params.inspect %> <br/><br/>
+				<% flash.each do |name, msg| %>
+					<%= content_tag :div, msg, :id => "flash_#{name}" %>
+				<% end %>
+			-->		
+<%= yield %>
+		</div>
+	</div>	
+	<div id="pageFooterOuter">
+		<div id="pageFooterInner">
+			<h3>Footer</h3>
+		</div>
+	</div>	
+	<div id="pageSubFooterOuter">
+		<div id="pageSubFooterInner">
+			<p id="copyrightdecl">		
+				Copyright 2015 Fedex Aviva Circles<br/>
+			</p>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

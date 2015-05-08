@@ -1,0 +1,24 @@
+<%= form_for(@circle, url: join_circle_submit_path(@circle), html: {method: "join_circle_submit"}) do |f| %>
+
+  <% if @circle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@circle.errors.count, "error") %> prohibited this circle from being saved:</h2>
+
+      <ul>
+      <% @circle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> 
+ 
+  <div class="field">
+    <label for="group_code">Group Code</label><br>
+    <input id="group_code" name="group_code" type="string" />
+  </div>  
+
+  <div class="actions">
+    <%= f.submit "Join Circle" %>
+  </div>
+  
+<% end %>

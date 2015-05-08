@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reward:</strong>
+  <%= @reward_takeup.reward %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reward_takeup.user %>
+</p>
+
+<%= link_to 'Edit', edit_reward_takeup_path(@reward_takeup) %> |
+<%= link_to 'Back', reward_takeups_path %>

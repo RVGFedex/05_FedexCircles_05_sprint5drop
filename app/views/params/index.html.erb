@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Params Summary</h2>
+
+<table>
+  <thead>
+    <tr>
+
+      <th class="desc" width="125">Grouping</th>
+
+      <th class="desc" width="125">Name</th>
+
+      <th class="desc" width="125">Value</th>
+
+	  <th colspan="3" width="165"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  
+	<% if @params.each.count == 0 %>
+		<tr>
+			<td class="desc" colspan=10>No Params currently exist.</td>
+		</tr>
+	<% else %>
+		<% @params.each do |param| %>
+			<tr>
+				
+					<td class="desc"><%= param.grouping %></td>
+				
+					<td class="desc"><%= param.name %></td>
+				
+					<td class="desc"><%= param.value %></td>
+				
+				<td width="55"><%= link_to image_tag("icon_show.png"), param %></td>
+				<td width="55"><%= link_to image_tag("icon_edit.png"), edit_param_path(param) %></td>
+				<td width="55"><%= link_to image_tag("icon_delete.png"), param, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	<% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Param', new_param_path %>
+
